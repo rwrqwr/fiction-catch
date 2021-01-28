@@ -1,0 +1,19 @@
+server:
+  tomcat:
+    uri-encoding: utf-8
+  port: 8080
+  servlet:
+    context-path: /rabbit
+spring:
+  profiles:
+    active: dev
+  mvc:
+    throw-exception-if-no-handler-found: true
+  resources:
+    add-mappings: false
+  application:
+    name: rabbit
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8
+

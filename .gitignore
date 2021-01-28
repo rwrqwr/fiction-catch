@@ -1,0 +1,36 @@
+target/
+!.mvn/wrapper/maven-wrapper.jar
+*.log
+*/static/config/
+*/static/index.html
+*/static/19*
+
+### propreties ###
+power.log*
+
+### STS ###
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
+
+### NetBeans ###
+nbproject/private/
+build/
+nbbuild/
+dist/
+nbdist/
+.nb-gradle/
+.DS_Store
+
+/src/main/resources/application-dev.yml
+/HELP.md
+.mvn
