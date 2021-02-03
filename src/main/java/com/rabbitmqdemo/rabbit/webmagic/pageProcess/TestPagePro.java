@@ -15,7 +15,8 @@ import java.util.regex.Pattern;
 public class TestPagePro implements PageProcessor {
 
     Pattern[] linkPattern = {Pattern.compile("http://www.biqujia.com/search.php\\?q=%25&p=\\d"),
-            Pattern.compile("http://www.biqujia.com/book/\\w+/\\w+/")};
+            Pattern.compile("http://www.biqujia.com/book/\\w+/\\w+/"),
+            Pattern.compile("http://www.biqujia.com/book/\\d/\\d/\\d.html")};
 //    Pattern pagePatten = Pattern.compile("");
     String pagePatten = "http://www.biqujia.com/book/\\d/\\d/\\d.html";
 
@@ -39,8 +40,6 @@ public class TestPagePro implements PageProcessor {
                 }
             }
         }
-
-        page.getHtml();
     }
 
     @Override
