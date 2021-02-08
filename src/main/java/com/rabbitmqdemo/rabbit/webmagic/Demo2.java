@@ -1,11 +1,10 @@
 package com.rabbitmqdemo.rabbit.webmagic;
 
+import com.rabbitmqdemo.rabbit.webmagic.pipline.MyPipeline;
 import us.codecraft.webmagic.Page;
 import us.codecraft.webmagic.Site;
 import us.codecraft.webmagic.Spider;
 import us.codecraft.webmagic.processor.PageProcessor;
-import us.codecraft.webmagic.processor.example.GithubRepoPageProcessor;
-import us.codecraft.webmagic.selector.Selectable;
 
 /**
  * @author fsh

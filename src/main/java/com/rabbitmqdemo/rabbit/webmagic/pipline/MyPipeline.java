@@ -1,5 +1,7 @@
-package com.rabbitmqdemo.rabbit.webmagic;
+package com.rabbitmqdemo.rabbit.webmagic.pipline;
 
+import com.rabbitmqdemo.rabbit.webmagic.dao.FictionDao;
+import com.rabbitmqdemo.rabbit.webmagic.entity.ChapterEntity;
 import org.elasticsearch.action.index.IndexRequest;
 import org.elasticsearch.client.RequestOptions;
 import org.elasticsearch.client.RestHighLevelClient;
@@ -22,21 +24,19 @@ public class MyPipeline implements Pipeline {
     @Resource
     RestHighLevelClient restHighLevelClient;
 
+    @Resource
+    FictionDao fictionDao;
+
     @Override
     public void process(ResultItems resultItems, Task task) {
 
-        HashMap<String,Object> map = new HashMap<>();
-        map.put("title",resultItems.get("title"));
-        map.put("act",resultItems.get("art"));
-        map.put("artName", resultItems.get("actName").toString().replace("&nbsp;", " ")
+        ChapterEntity chapterEntity = new ChapterEntity();
+        chapterEntity.setTitle(resultItems.get("title").toString());
+        chapterEntity.setArt(resultItems.get("act").toString().replace("&nbsp;", " ")
                 .replace("<br>", "")
                 .replace("</div>", "")
                 .replace("<div id=\"content\">", ""));
-        IndexRequest indexRequest = new IndexRequest("content").source(resultItems);
-        try {
-            restHighLevelClient.index(indexRequest, RequestOptions.DEFAULT);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        chapterEntity.setArtName(resultItems.get("artName").toString());
+        fictionDao.insert(chapterEntity);
     }
 }

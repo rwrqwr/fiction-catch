@@ -1,5 +1,6 @@
 package com.rabbitmqdemo.rabbit.webmagic.entity;
 
+import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
 import us.codecraft.webmagic.Site;
 import us.codecraft.webmagic.Spider;
@@ -20,6 +21,7 @@ import java.io.Serializable;
 @TargetUrl("http://www.biqujia.com/book/\\w+\\w+.html")
 @HelpUrl("http://www.biqujia.com/book/")
 @Data
+@TableName("fiction")
 public class ChapterEntity implements Serializable {
 
     private static final long serialVersionUID = 1L;

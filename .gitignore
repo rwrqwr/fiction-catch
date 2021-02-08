@@ -34,3 +34,4 @@ nbdist/
 /src/main/resources/application-dev.yml
 /HELP.md
 .mvn
+test

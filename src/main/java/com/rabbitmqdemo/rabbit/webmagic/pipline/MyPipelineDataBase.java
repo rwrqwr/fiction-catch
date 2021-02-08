@@ -1,4 +1,4 @@
-package com.rabbitmqdemo.rabbit.webmagic;
+package com.rabbitmqdemo.rabbit.webmagic.pipline;
 
 import com.rabbitmqdemo.rabbit.webmagic.entity.ChapterEntity;
 import org.elasticsearch.action.index.IndexRequest;

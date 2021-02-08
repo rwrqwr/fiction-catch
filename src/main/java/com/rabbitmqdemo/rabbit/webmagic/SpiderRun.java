@@ -1,18 +1,13 @@
 package com.rabbitmqdemo.rabbit.webmagic;
 
-import com.rabbitmqdemo.rabbit.webmagic.entity.ChapterEntity;
 import com.rabbitmqdemo.rabbit.webmagic.pageProcess.TestPagePro;
+import com.rabbitmqdemo.rabbit.webmagic.pipline.MyPipeline;
+import com.rabbitmqdemo.rabbit.webmagic.pipline.MyPipelineDataBase;
 import com.rabbitmqdemo.rabbit.webmagic.scheduler.TestScheduler;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import redis.clients.jedis.JedisPool;
-import redis.clients.jedis.JedisPoolConfig;
-import us.codecraft.webmagic.Site;
 import us.codecraft.webmagic.Spider;
-import us.codecraft.webmagic.model.OOSpider;
-import us.codecraft.webmagic.scheduler.RedisScheduler;
 
 import javax.annotation.Resource;
 

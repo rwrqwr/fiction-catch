@@ -18,7 +18,7 @@ public class TestPagePro implements PageProcessor {
             Pattern.compile("http://www.biqujia.com/book/\\w+/\\w+/\\w+.html"),
             Pattern.compile("http://www.biqujia.com/book/\\w+/\\w+/")};
 //    Pattern pagePatten = Pattern.compile("");
-    String pagePatten = "http://www.biqujia.com/book/\\d/\\d/\\d.html";
+    String pagePatten = "http://www.biqujia.com/book/\\w+/\\w+/\\w+.html";
 
     @Override
     public void process(Page page) {
