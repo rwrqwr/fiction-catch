@@ -1,5 +1,6 @@
 package com.rabbitmqdemo.rabbit.webmagic.scheduler;
 
+import com.rabbitmqdemo.rabbit.webmagic.entity.enums.RedisType;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.stereotype.Component;
@@ -20,8 +21,7 @@ import java.util.concurrent.LinkedBlockingQueue;
 @Component
 public class TestScheduler extends DuplicateRemovedScheduler implements DuplicateRemover {
 
-    private static final String QUEUE = "que_";
-    private static final String SET = "set_";
+
 
     @Autowired
     StringRedisTemplate stringRedisTemplate;
@@ -58,9 +58,9 @@ public class TestScheduler extends DuplicateRemovedScheduler implements Duplicat
     }
 
     private String getQueueName(Task task){
-        return QUEUE.concat(task.getUUID());
+        return RedisType.QUEUE.concat(task.getUUID());
     }
     private String getSetName(Task task){
-        return SET.concat(task.getUUID());
+        return RedisType.SET.concat(task.getUUID());
     }
 }

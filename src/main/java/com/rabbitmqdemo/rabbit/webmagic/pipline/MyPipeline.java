@@ -12,6 +12,7 @@ import us.codecraft.webmagic.pipeline.Pipeline;
 
 import javax.annotation.Resource;
 import java.io.IOException;
+import java.sql.SQLException;
 import java.util.HashMap;
 
 /**
@@ -37,6 +38,11 @@ public class MyPipeline implements Pipeline {
                 .replace("</div>", "")
                 .replace("<div id=\"content\">", ""));
         chapterEntity.setArtName(resultItems.get("artName").toString());
-        fictionDao.insert(chapterEntity);
+        try {
+            fictionDao.insert(chapterEntity);
+        } catch (Exception e) {
+            e.printStackTrace();
+            throw new RuntimeException();
+        }
     }
 }
