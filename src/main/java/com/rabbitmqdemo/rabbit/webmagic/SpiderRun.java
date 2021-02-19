@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import us.codecraft.webmagic.Spider;
 import us.codecraft.webmagic.SpiderListener;
+import us.codecraft.webmagic.downloader.Downloader;
 import us.codecraft.webmagic.monitor.SpiderMonitor;
 
 import javax.annotation.Resource;
@@ -50,8 +51,9 @@ public class SpiderRun {
                 .addUrl("http://www.biqujia.com/book/0/132/").thread(10).run();*/
         List<SpiderListener> spiderListenerList = new LinkedList<>();
         spiderListenerList.add(testListener);
-        Spider.create(new TestPagePro())
-                .addPipeline(myPipeline)
+        Spider spider = new Spider(new TestPagePro());
+
+        spider.addPipeline(myPipeline)
                 .addUrl("http://www.biqujia.com/search.php?q=%25&p=1")
                 .setScheduler(testScheduler)
                 .setSpiderListeners(spiderListenerList)

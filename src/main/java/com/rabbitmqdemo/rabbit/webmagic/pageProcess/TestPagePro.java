@@ -27,6 +27,7 @@ public class TestPagePro implements PageProcessor {
             page.putField("title",page.getHtml().xpath("//div[@class=bookname]/h1/text()"));
             page.putField("act",page.getHtml().xpath("//div[@id=content]"));
             page.putField("artName",page.getHtml().xpath("//div[@class=con_top]/a[3]/text()"));
+            page.putField("type",page.getHtml().xpath("//div[@class=con_top]/a[2]/text()"));
         }else {
             List<String> all = page.getHtml().links().all();
             for (String s : all) {
@@ -44,6 +45,6 @@ public class TestPagePro implements PageProcessor {
 
     @Override
     public Site getSite() {
-        return new Site();
+        return new Site().setRetryTimes(3).setCycleRetryTimes(3);
     }
 }

@@ -38,6 +38,7 @@ public class MyPipeline implements Pipeline {
                 .replace("</div>", "")
                 .replace("<div id=\"content\">", ""));
         chapterEntity.setArtName(resultItems.get("artName").toString());
+        chapterEntity.setType(resultItems.get("type").toString());
         try {
             fictionDao.insert(chapterEntity);
         } catch (Exception e) {

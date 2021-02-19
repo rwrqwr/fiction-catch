@@ -34,6 +34,7 @@ public class ChapterEntity implements Serializable {
     @ExtractBy("//div[@class=con_top]/a[3]/text()")
     private String artName;
 
+    private String type;
 
 }
 
